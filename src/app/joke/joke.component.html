@@ -1,0 +1,14 @@
+<div *ngFor="let i of data" class="card">
+  <div class="card card-title">
+    Joke
+  </div>
+  <div class="card-text">
+    {{ i.jokeConversation }}
+  </div>
+  <div class="card-text" *ngIf="i.jokeStatus">
+    {{ i.jokeReply }}
+  </div>
+  <button (click)="toggleJoke(i)">
+    Toggle
+  </button>
+</div>
