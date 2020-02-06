@@ -1,10 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-
-export class Joke {
-  jokeConversation: string;
-  jokeReply: string;
-  jokeStatus: boolean;
-}
+import { Joke } from "../models/shared/joke";
 @Component({
   selector: "app-joke",
   templateUrl: "./joke.component.html",
@@ -15,8 +10,9 @@ export class JokeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  toggleJoke(status) {
-    status.jokeStatus = !status.jokeStatus;
-    console.log(status.jokeStatus);
-  }
+  // not necessary already given in Joke class
+  // toggleJoke(status) {
+  //   status.jokeStatus = !status.jokeStatus;
+  //   console.log(status.jokeStatus);
+  // }
 }

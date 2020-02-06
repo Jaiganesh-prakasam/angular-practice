@@ -1,14 +1,16 @@
-<div *ngFor="let i of data" class="card">
-  <div class="card card-title">
+<div *ngFor="let i of data" class="card card-block m-2">
+  <div class="card-title ml-2">
     Joke
   </div>
-  <div class="card-text">
-    {{ i.jokeConversation }}
+  <div class="card-body">
+    <div class="card-text">
+      {{ i.jokeConversation }}
+    </div>
+    <div class="card-text" *ngIf="i.jokeStatus">
+      {{ i.jokeReply }}
+    </div>
+    <button class="btn btn-primary" (click)="i.jokeStatusToggle()">
+      Toggle
+    </button>
   </div>
-  <div class="card-text" *ngIf="i.jokeStatus">
-    {{ i.jokeReply }}
-  </div>
-  <button (click)="toggleJoke(i)">
-    Toggle
-  </button>
 </div>

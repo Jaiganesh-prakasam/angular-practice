@@ -1,19 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
-// data model
-export class Joke {
-  jokeConversation: string;
-  jokeReply: string;
-  jokeStatus: boolean;
-  constructor(jokec, joker) {
-    this.jokeConversation = jokec;
-    this.jokeReply = joker;
-    this.jokeStatus = false;
-  }
-  jokeStatusToggle() {
-    this.jokeStatus = !this.jokeStatus;
-  }
-}
+import { Joke } from "../models/shared/joke";
 @Component({
   selector: "app-jokes",
   templateUrl: "./jokes.component.html",
@@ -30,4 +16,7 @@ export class JokesComponent implements OnInit {
   }
 
   ngOnInit() {}
+  addJoke(joke) {
+    this.jokes.unshift(joke);
+  }
 }

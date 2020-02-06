@@ -5,9 +5,13 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { JokesComponent } from "./jokes/jokes.component";
 import { JokeComponent } from "./joke/joke.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { JokeFormComponent } from './joke-form/joke-form.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
-  declarations: [AppComponent, JokesComponent, JokeComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, JokesComponent, JokeComponent, JokeFormComponent, HeaderComponent, FooterComponent],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent]
 })
