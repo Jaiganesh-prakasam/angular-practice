@@ -8,15 +8,24 @@ import { Joke } from "../models/shared/joke";
 export class JokesComponent implements OnInit {
   jokes: Joke[];
   constructor() {
-    this.jokes = [
-      new Joke("we buy tomato", "strike iorn while it is hot"),
-      new Joke("we buy potato", "self help is best help"),
-      new Joke("we buy brinjal", "look backwards to connect the dots")
-    ];
+    this.jokes = [new Joke("we buy tomato", "strike iorn while it is hot")];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("triggered");
+  }
+  ngDestroy() {
+    console.log("destroyed");
+  }
   addJoke(joke) {
     this.jokes.unshift(joke);
+  }
+  addData() {
+    this.jokes.unshift(
+      new Joke("we buy tomato", "strike iorn while it is hot")
+    );
+  }
+  removeData() {
+    this.jokes.pop();
   }
 }

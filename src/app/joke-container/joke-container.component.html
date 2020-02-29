@@ -1,0 +1,11 @@
+<div class="card-body">
+  <div class="card-text">
+    {{ data.jokeConversation }}
+  </div>
+  <div class="card-text" *ngIf="data.jokeStatus">
+    {{ data.jokeReply }}
+  </div>
+  <button class="btn btn-primary" (click)="data.jokeStatusToggle()">
+    Toggle
+  </button>
+</div>
