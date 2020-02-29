@@ -29,34 +29,34 @@ export class JokeContainerComponent
     AfterViewChecked {
   @Input("JokeContent") data: any;
   constructor() {
-    console.log("i am from constructor");
+    // console.log("i am from constructor");
   }
 
   ngOnInit() {
-    console.log("ng on init triggered");
+    // console.log("ng on init triggered");
   }
   ngOnChanges(changes: SimpleChanges) {
-    console.log("data is" + changes);
-    for (let key in changes) {
-      console.log(`${key}
-      previous: ${changes[key].previousValue}
-        current: ${changes[key].currentValue}
-      `);
-    }
+    // console.log("data is" + changes);
+    // for (let key in changes) {
+    //   console.log(`${key}
+    //   previous: ${changes[key].previousValue}
+    //     current: ${changes[key].currentValue}
+    //   `);
+    // }
   }
   ngAfterContentChecked() {
-    console.log("ng after content checked");
+    // console.log("ng after content checked");
   }
   ngAfterContentInit() {
-    console.log("ng after content init");
+    // console.log("ng after content init");
   }
   ngAfterViewChecked() {
-    console.log("ng after view checked");
+    // console.log("ng after view checked");
   }
   ngAfterViewInit() {
-    console.log("ng after view init");
+    // console.log("ng after view init");
   }
   ngOnDestroy() {
-    console.log("ng on destroy");
+    // console.log("ng on destroy");
   }
 }

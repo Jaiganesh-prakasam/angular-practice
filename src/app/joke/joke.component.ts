@@ -1,14 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  OnDestroy,
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit
-} from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Joke } from "../models/shared/joke";
 @Component({
   selector: "app-joke",
