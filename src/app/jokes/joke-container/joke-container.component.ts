@@ -8,7 +8,6 @@ import {
   AfterContentInit,
   AfterViewChecked,
   AfterViewInit,
-  SimpleChange,
   SimpleChanges
 } from "@angular/core";
 
@@ -45,10 +44,10 @@ export class JokeContainerComponent
     // }
   }
   ngAfterContentChecked() {
-    // console.log("ng after content checked");
+    console.log("ng after content checked");
   }
   ngAfterContentInit() {
-    // console.log("ng after content init");
+    console.log("ng after content init");
   }
   ngAfterViewChecked() {
     // console.log("ng after view checked");

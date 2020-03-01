@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Joke } from "../models/shared/joke";
+import { Joke } from "../../models/shared/joke";
 @Component({
   selector: "app-joke",
   templateUrl: "./joke.component.html",
