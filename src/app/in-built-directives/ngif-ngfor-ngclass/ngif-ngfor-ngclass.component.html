@@ -4,12 +4,76 @@
   *ngFor="let carCompany of carCompanies; let i; of: index"
 >
   <div class="card card-title">
-    {{ carCompany.companyName }}
+    {{ carCompany.companyName }} - using ngClass ngStyle
   </div>
   <div class="card card-body">
     <li
       *ngFor="let model of carCompany.models"
-      [ngStyle]="{ 'background-color': model.color }"
+      [ngClass]="model.color"
+      [ngStyle]="{ 'font-size.px': 40 }"
+    >
+      {{ model.modelName }}
+    </li>
+  </div>
+</div>
+
+<div
+  class="card"
+  [ngStyle]="{ 'margin.px': 10 }"
+  *ngFor="let carCompany of carCompanies; let i; of: index"
+>
+  <div class="card card-title">
+    {{ carCompany.companyName }} - using class and style
+  </div>
+  <div class="card card-body">
+    <li
+      *ngFor="let model of carCompany.models"
+      [class]="model.color"
+      [style.fontSize.px]="20"
+    >
+      {{ model.modelName }}
+    </li>
+  </div>
+</div>
+
+<div
+  class="card"
+  [ngStyle]="{ 'margin.px': 10 }"
+  *ngFor="let carCompany of carCompanies; let i; of: index"
+>
+  <div class="card card-title">
+    {{ carCompany.companyName }} - using ngClass with boolean expression
+  </div>
+  <div class="card card-body">
+    <li
+      *ngFor="let model of carCompany.models"
+      [ngClass]="{
+        red: model.color === 'red',
+        blue: model.color === 'blue',
+        yellow: model.color === 'yellow',
+        green: model.color === 'green'
+      }"
+    >
+      {{ model.modelName }}
+    </li>
+  </div>
+</div>
+
+<div
+  class="card"
+  [ngStyle]="{ 'margin.px': 10 }"
+  *ngFor="let carCompany of carCompanies; let i; of: index"
+>
+  <div class="card card-title">
+    {{ carCompany.companyName }} - using class with boolean expression
+  </div>
+  <div class="card card-body">
+    <li
+      *ngFor="let model of carCompany.models"
+      [class.red]="model.color === 'red'"
+      [class.green]="model.color === 'green'"
+      [class.blue]="model.color === 'blue'"
+      [class.yellow]="model.color === 'yellow'"
     >
       {{ model.modelName }}
     </li>
