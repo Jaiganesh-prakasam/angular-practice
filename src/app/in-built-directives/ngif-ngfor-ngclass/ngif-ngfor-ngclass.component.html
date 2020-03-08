@@ -4,6 +4,24 @@
   *ngFor="let carCompany of carCompanies; let i; of: index"
 >
   <div class="card card-title">
+    {{ carCompany.companyName }} - using style to set background color
+  </div>
+  <div class="card card-body">
+    <li
+      *ngFor="let model of carCompany.models"
+      [style.backgroundColor]="model.color"
+    >
+      {{ model.modelName }}
+    </li>
+  </div>
+</div>
+
+<div
+  class="card"
+  [ngStyle]="{ 'margin.px': 10 }"
+  *ngFor="let carCompany of carCompanies; let i; of: index"
+>
+  <div class="card card-title">
     {{ carCompany.companyName }} - using ngClass ngStyle
   </div>
   <div class="card card-body">
