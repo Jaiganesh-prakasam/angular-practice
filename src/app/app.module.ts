@@ -7,14 +7,16 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 // import { JokesModule } from "./jokes/jokes.module";
-import { ViewChildrenContentChildrenModule } from "./view-children-content-children/view-children-content-children.module";
+// import { ViewChildrenContentChildrenModule } from "./view-children-content-children/view-children-content-children.module";
+import { InBuiltDirectivesModule } from "./in-built-directives/in-built-directives.module";
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ViewChildrenContentChildrenModule
+    InBuiltDirectivesModule
+    // ViewChildrenContentChildrenModule
     // JokesModule
   ],
   providers: [],

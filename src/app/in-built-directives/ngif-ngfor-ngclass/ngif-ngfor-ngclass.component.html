@@ -1,0 +1,14 @@
+<div
+  class="card"
+  [ngStyle]="{ 'margin.px': 10 }"
+  *ngFor="let carCompany of carCompanies; let i; of: index"
+>
+  <div class="card card-title">
+    {{ carCompany.companyName }}
+  </div>
+  <div class="card card-body">
+    <li *ngFor="let model of carCompany.models" [style.color]="model.color">
+      {{ model.modelName }}
+    </li>
+  </div>
+</div>
