@@ -10,6 +10,7 @@
     <li
       *ngFor="let model of carCompany.models"
       [style.backgroundColor]="model.color"
+      ngNonBindable
     >
       {{ model.modelName }}
     </li>
