@@ -1,3 +1,12 @@
 <div class="card card-block" [appCcd]="{ querySelector: 'p' }">
   <p class="card-text">custom-directive works!</p>
+
+  <img
+    src="../../../assets/sea.jpg"
+    class="card-body"
+    [appCcImage]="{
+      initial: '../../../assets/mountain.jpg',
+      over: '../../../assets/sea.jpg'
+    }"
+  />
 </div>
