@@ -10,14 +10,16 @@ import { FooterComponent } from "./footer/footer.component";
 // import { ViewChildrenContentChildrenModule } from "./view-children-content-children/view-children-content-children.module";
 // import { InBuiltDirectivesModule } from "./in-built-directives/in-built-directives.module";
 // import { CustomDirectiveModule } from "./custom-directive/custom-directive.module";
-import { ReactiveProgramingModule } from "./reactive-programing/reactive-programing.module";
+// import { ReactiveProgramingModule } from "./reactive-programing/reactive-programing.module";
+import { PipeExampleModule } from "./pipe-example/pipe-example.module";
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveProgramingModule
+    PipeExampleModule
+    // ReactiveProgramingModule
     // CustomDirectiveModule
     // InBuiltDirectivesModule,
     // JokesModule,
