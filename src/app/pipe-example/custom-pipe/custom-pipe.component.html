@@ -1,0 +1,12 @@
+<div class="card card-block">
+  <div class="card-title">
+    Source given
+  </div>
+  <img [src]="'assets/sea.jpg' | default: 'assets/mountain.jpg'" />
+</div>
+<div class="card card-block">
+  <div class="card-title">
+    From default source
+  </div>
+  <img [src]="'' | default: 'assets/mountain.jpg'" />
+</div>

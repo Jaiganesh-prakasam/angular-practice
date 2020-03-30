@@ -5,13 +5,15 @@ import { JokesComponent } from "./jokes.component";
 import { JokeFormComponent } from "./joke-form/joke-form.component";
 import { JokeContainerComponent } from "./joke-container/joke-container.component";
 import { JokeListComponent } from "./joke-list/joke-list.component";
+import { CleanPipe } from './clean.pipe';
 @NgModule({
   declarations: [
     JokeComponent,
     JokesComponent,
     JokeFormComponent,
     JokeContainerComponent,
-    JokeListComponent
+    JokeListComponent,
+    CleanPipe
   ],
   imports: [CommonModule],
   exports: [

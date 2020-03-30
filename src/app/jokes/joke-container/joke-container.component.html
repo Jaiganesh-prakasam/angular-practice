@@ -3,7 +3,7 @@
     {{ data.jokeConversation }}
   </div>
   <div class="card-text" *ngIf="data.jokeStatus">
-    {{ data.jokeReply }}
+    {{ data.jokeReply | clean: "boo,damn,hell" }}
   </div>
   <button class="btn btn-primary" (click)="data.jokeStatusToggle()">
     Toggle
