@@ -1,0 +1,28 @@
+<form [formGroup]="registrationForm" class="card card-block">
+  <fieldset formGroupName="name">
+    <div class="form-group">
+      <label>First Name</label>
+      <input class="form-control" formControlName="firstName" />
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input class="form-control" formControlName="lastName" />
+    </div>
+  </fieldset>
+  <div class="form-group">
+    <label>Mail id</label>
+    <input class="form-control" formControlName="mail" />
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control" formControlName="password" />
+  </div>
+  <div class="form-group">
+    <label>Language</label>
+    <select class="form-control" formControlName="language">
+      <option value="">Please select a language</option>
+      <option *ngFor="let lang of langs" [value]="lang">{{ lang }} </option>
+    </select>
+  </div>
+  <pre>{{ registrationForm.value | json }}</pre>
+</form>
