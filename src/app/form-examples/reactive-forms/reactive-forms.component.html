@@ -1,0 +1,10 @@
+<div>
+  <label>Search</label>
+  <input class="form-control" type="search" [formControl]="searchField" />
+</div>
+<hr />
+<ul>
+  <li *ngFor="let search of searches">
+    {{ search }}
+  </li>
+</ul>
