@@ -18,6 +18,9 @@ export class ModelDrivenFormsComponent implements OnInit {
     this.formControlInitiation();
     this.formInitiation();
   }
+
+  ngOnInit(): void {}
+
   formControlInitiation() {
     this.firstName = new FormControl("", Validators.required);
     this.lastName = new FormControl("", Validators.required);
@@ -42,6 +45,10 @@ export class ModelDrivenFormsComponent implements OnInit {
       language: this.language
     });
   }
-
-  ngOnInit(): void {}
+  onSubmit() {
+    console.log("form submitted");
+  }
+  onReset() {
+    this.registrationForm.reset();
+  }
 }

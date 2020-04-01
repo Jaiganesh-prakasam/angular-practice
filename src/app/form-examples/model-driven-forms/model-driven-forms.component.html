@@ -1,4 +1,8 @@
-<form [formGroup]="registrationForm" class="card card-block">
+<form
+  [formGroup]="registrationForm"
+  (ngSubmit)="onSubmit()"
+  class="card card-block"
+>
   <fieldset formGroupName="name">
     <div class="form-group">
       <label>First Name</label>
@@ -86,6 +90,18 @@
       <option value="">Please select a language</option>
       <option *ngFor="let lang of langs" [value]="lang">{{ lang }} </option>
     </select>
+  </div>
+  <div class="d-flex justify-content-around">
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="registrationForm.invalid"
+    >
+      Submit
+    </button>
+    <button class="btn btn-primary" type="reset" (click)="onReset()">
+      reset
+    </button>
   </div>
   <pre>{{ registrationForm.value | json }}</pre>
 </form>
