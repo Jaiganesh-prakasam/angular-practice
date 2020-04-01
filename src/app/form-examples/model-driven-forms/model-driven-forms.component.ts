@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 @Component({
   selector: "model-driven-forms",
   templateUrl: "./model-driven-forms.component.html",
@@ -7,16 +7,39 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class ModelDrivenFormsComponent implements OnInit {
   registrationForm: FormGroup;
+  name: FormGroup;
+  firstName: FormControl;
+  lastName: FormControl;
+  mail: FormControl;
+  password: FormControl;
+  language: FormControl;
   langs: string[] = ["English", "French", "German"];
   constructor() {
+    this.formControlInitiation();
+    this.formInitiation();
+  }
+  formControlInitiation() {
+    this.firstName = new FormControl("", Validators.required);
+    this.lastName = new FormControl("", Validators.required);
+    this.mail = new FormControl("", [
+      Validators.required,
+      Validators.pattern("[^@]*@[^@]*")
+    ]);
+    this.password = new FormControl("", [
+      Validators.required,
+      Validators.minLength(8)
+    ]);
+    this.language = new FormControl("");
+  }
+  formInitiation() {
     this.registrationForm = new FormGroup({
       name: new FormGroup({
-        firstName: new FormControl(),
-        lastName: new FormControl()
+        firstName: this.firstName,
+        lastName: this.lastName
       }),
-      mail: new FormControl(),
-      password: new FormControl(),
-      language: new FormControl()
+      mail: this.mail,
+      password: this.password,
+      language: this.language
     });
   }
 
