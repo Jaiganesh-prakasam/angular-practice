@@ -11,7 +11,7 @@ import { FormsModule } from "@angular/forms";
   declarations: [ParentComponent, ChildComponent],
   imports: [FormsModule, CommonModule],
   providers: [
-    SimpleService
+    // SimpleService
     // InjectInjectableService
     // ProvidersExampleService
     // InjectorExampleService
