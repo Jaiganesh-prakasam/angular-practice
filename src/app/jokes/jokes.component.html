@@ -1,4 +1,20 @@
-<app-joke-form (jokeCreated)="addJoke($event)"> </app-joke-form>
-<button (click)="addData()">add</button>
-<button (click)="removeData()">remove</button>
-<app-joke [Joke]="jokes"></app-joke>
+<app-joke-form (jokeCreated)="jokelistService.addJoke($event)"> </app-joke-form>
+<div [style]="{ display: 'flex', 'justify-content': 'space-around' }">
+  <button class="btn btn-primary" (click)="jokelistService.addData()">
+    add
+  </button>
+  <button class="btn btn-primary" (click)="jokelistService.removeData()">
+    remove
+  </button>
+</div>
+<div class="form-group">
+  <label>
+    number of jokes
+  </label>
+  <input
+    type="number"
+    class="form-control"
+    [(ngModel)]="jokemaxService.maxValue"
+  />
+</div>
+<app-joke [Joke]="jokelistService.jokes"></app-joke>
