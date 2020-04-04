@@ -2,10 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { Joke } from "../models/shared/joke";
 import { JokemaxService } from "./jokemax.service";
 import { JokelistService } from "./jokelist.service";
+
 @Component({
   selector: "app-jokes",
   templateUrl: "./jokes.component.html",
-  styleUrls: ["./jokes.component.sass"]
+  styleUrls: ["./jokes.component.sass"],
+  viewProviders: [JokelistService, JokemaxService]
+  // providers: [JokelistService, JokemaxService]
 })
 export class JokesComponent implements OnInit {
   constructor(

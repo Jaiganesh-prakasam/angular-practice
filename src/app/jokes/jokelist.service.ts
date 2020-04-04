@@ -1,9 +1,10 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { Joke } from "../models/shared/joke";
 import { JokemaxService } from "./jokemax.service";
-@Injectable({
-  providedIn: "root"
-})
+// @Injectable({
+//   providedIn: "root"
+// })
+@Injectable()
 export class JokelistService {
   jokes: Joke[];
   constructor(private jokemaxService: JokemaxService) {
