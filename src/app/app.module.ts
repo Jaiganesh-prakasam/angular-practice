@@ -12,14 +12,16 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 // import { PipeExampleModule } from "./pipe-example/pipe-example.module";
 // import { FormExamplesModule } from "./form-examples/form-examples.module";
 // import { DependencyInjectionModule } from "./dependency-injection/dependency-injection.module";
-import { HttpExampleModule } from "./http-example/http-example.module";
+// import { HttpExampleModule } from "./http-example/http-example.module";
+import { RouterConfigModule } from "./router-config/router-config.module";
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpExampleModule,
+    RouterConfigModule,
+    // HttpExampleModule
     // JokesModule
     // DependencyInjectionModule
     // FormExamplesModule
