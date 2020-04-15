@@ -5,8 +5,16 @@
       class="form-control"
       placeholder="Enter search string"
       [formControl]="searchField"
+      #search
     />
   </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="onSearch(search.value)"
+  >
+    Search
+  </button>
 </form>
 
 <div class="text-center">
@@ -14,8 +22,8 @@
 </div>
 
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let track of results | async">
-    <img src="{{ track.thumbnail }}" />
+  <li class="list-group-item" *ngFor="let track of itunes.results">
+    <img src="{{ track.thumbnail }}" />&nbsp;&nbsp;&nbsp;
     <a target="_blank" href="{{ track.link }}">{{ track.track }} </a>
   </li>
 </ul>

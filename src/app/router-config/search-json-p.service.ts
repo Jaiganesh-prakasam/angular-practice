@@ -6,14 +6,17 @@ import { map } from "rxjs/operators";
 @Injectable()
 export class SearchJsonPService {
   apiRoot: string = "https://itunes.apple.com/search";
-
-  constructor(private http: HttpClient) {}
+  results: SearchItem[];
+  constructor(private http: HttpClient) {
+    this.results = [];
+  }
 
   search(term: string) {
     let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
+    this.results = [];
     return this.http.jsonp(apiURL, "callback").pipe(
       map((res) => {
-        return (res as any).results.map((item) => {
+        return (this.results = (res as any).results.map((item) => {
           return new SearchItem(
             item.trackName,
             item.artistName,
@@ -21,7 +24,7 @@ export class SearchJsonPService {
             item.artworkUrl30,
             item.artistId
           );
-        });
+        }));
       })
     );
   }
