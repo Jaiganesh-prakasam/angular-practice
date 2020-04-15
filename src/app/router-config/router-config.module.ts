@@ -8,11 +8,23 @@ import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { SearchJsonPService } from "./search-json-p.service";
+import { ArtistComponent } from "./artist/artist.component";
+import { ArtistTrackListComponent } from "./artist-track-list/artist-track-list.component";
+import { ArtistAlbumListComponent } from "./artist-album-list/artist-album-list.component";
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "find", redirectTo: "search" },
   { path: "home", component: HomeComponent },
   { path: "search", component: SearchComponent },
+  {
+    path: "artist/:artistId",
+    component: ArtistComponent,
+    children: [
+      { path: "", redirectTo: "tracks", pathMatch: "full" },
+      { path: "tracks", component: ArtistTrackListComponent },
+      { path: "albums", component: ArtistAlbumListComponent },
+    ],
+  },
   { path: "**", component: HomeComponent },
 ];
 @NgModule({
@@ -21,6 +33,9 @@ const routes: Routes = [
     SearchComponent,
     RouterConfigComponent,
     HeaderComponent,
+    ArtistComponent,
+    ArtistTrackListComponent,
+    ArtistAlbumListComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +45,14 @@ const routes: Routes = [
     HttpClientJsonpModule,
     RouterModule.forRoot(routes, { useHash: true }),
   ],
-  exports: [HomeComponent, SearchComponent, RouterConfigComponent],
+  exports: [
+    HomeComponent,
+    SearchComponent,
+    RouterConfigComponent,
+    ArtistComponent,
+    ArtistTrackListComponent,
+    ArtistAlbumListComponent,
+  ],
   providers: [SearchJsonPService],
 })
 export class RouterConfigModule {}

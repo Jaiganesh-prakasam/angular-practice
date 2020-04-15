@@ -16,7 +16,7 @@ export class SearchJsonPService {
     this.results = [];
     return this.http.jsonp(apiURL, "callback").pipe(
       map((res) => {
-        return (this.results = (res as any).results.map((item) => {
+        this.results = (res as any).results.map((item) => {
           return new SearchItem(
             item.trackName,
             item.artistName,
@@ -24,7 +24,7 @@ export class SearchJsonPService {
             item.artworkUrl30,
             item.artistId
           );
-        }));
+        });
       })
     );
   }
