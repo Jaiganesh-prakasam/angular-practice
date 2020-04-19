@@ -12,9 +12,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## About this project
 
-Project focuses on the examples from book angular4: From theory to practice by Asim Hussain.
-Angular version 9 and bootstrap 4 was used.
-Examples are changed to make it working with the above versions.
-A seperate module is created for every topic.
-Routing topic even has seperate branches assigned for each lesson. 
-All the topics Except for testing is covered from the book.
+Project focuses on the examples from book angular4: From theory to practice by Asim Hussain.<br/>
+Angular version 9 and bootstrap 4 was used.<br/>
+Examples are changed to make it working with the above versions.<br/>
+A seperate module is created for every topic.<br/>
+Routing topic even has seperate branches assigned for each lesson.<br/> 
+All the topics Except for testing is covered from the book.<br/>
