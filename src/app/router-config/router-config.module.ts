@@ -7,23 +7,36 @@ import { HeaderComponent } from "./header/header.component";
 import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
-import { SearchJsonPService } from "./search-json-p.service";
-import { ArtistComponent } from "./artist/artist.component";
-import { ArtistTrackListComponent } from "./artist-track-list/artist-track-list.component";
-import { ArtistAlbumListComponent } from "./artist-album-list/artist-album-list.component";
+import { SearchJsonPService } from "./service/search-json-p.service";
+import { UserService } from "./service/user.service";
+import { AlwaysAuthChildrenGuard } from "./guards/always-auth-children.guard";
+import { AlwaysAuthGuard } from "./guards/always-auth.guard";
+import { OnlyLoggedInUserGuard } from "./guards/only-logged-in-user.guard";
+import { UnsearchedTermGuard } from "./guards/unsearched-term.guard";
+import { SomtimesDontLoadChildrenGuard } from "./guards/somtimes-dont-load-children.guard";
+import { ResolveRouterGuard } from "./guards/resolve-router.guard";
+import { ChildmodulesModule } from "./childmodules/childmodules.module";
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "find", redirectTo: "search" },
   { path: "home", component: HomeComponent },
-  { path: "search", component: SearchComponent },
+  {
+    path: "search",
+    component: SearchComponent,
+    canDeactivate: [UnsearchedTermGuard],
+  },
   {
     path: "artist/:artistId",
-    component: ArtistComponent,
-    children: [
-      { path: "", redirectTo: "tracks", pathMatch: "full" },
-      { path: "tracks", component: ArtistTrackListComponent },
-      { path: "albums", component: ArtistAlbumListComponent },
-    ],
+    canActivate: [OnlyLoggedInUserGuard, AlwaysAuthGuard],
+    canActivateChild: [AlwaysAuthChildrenGuard],
+    canLoad: [SomtimesDontLoadChildrenGuard],
+    loadChildren: () =>
+      import("./childmodules/childmodules.module").then(
+        (m) => m.ChildmodulesModule
+      ),
+    resolve: {
+      artistData: ResolveRouterGuard,
+    },
   },
   { path: "**", component: HomeComponent },
 ];
@@ -33,9 +46,6 @@ const routes: Routes = [
     SearchComponent,
     RouterConfigComponent,
     HeaderComponent,
-    ArtistComponent,
-    ArtistTrackListComponent,
-    ArtistAlbumListComponent,
   ],
   imports: [
     CommonModule,
@@ -44,15 +54,18 @@ const routes: Routes = [
     HttpClientModule,
     HttpClientJsonpModule,
     RouterModule.forRoot(routes, { useHash: true }),
+    ChildmodulesModule,
   ],
-  exports: [
-    HomeComponent,
-    SearchComponent,
-    RouterConfigComponent,
-    ArtistComponent,
-    ArtistTrackListComponent,
-    ArtistAlbumListComponent,
+  exports: [HomeComponent, SearchComponent, RouterConfigComponent],
+  providers: [
+    SearchJsonPService,
+    UserService,
+    UnsearchedTermGuard,
+    OnlyLoggedInUserGuard,
+    AlwaysAuthGuard,
+    AlwaysAuthChildrenGuard,
+    SomtimesDontLoadChildrenGuard,
+    ResolveRouterGuard,
   ],
-  providers: [SearchJsonPService],
 })
 export class RouterConfigModule {}

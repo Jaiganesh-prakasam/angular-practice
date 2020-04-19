@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 //   switchMap,
 // } from "rxjs/operators";
 import { SearchItem } from "../data-model/search-item.model";
-import { SearchJsonPService } from "../search-json-p.service";
+import { SearchJsonPService } from "../service/search-json-p.service";
 import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-search",
@@ -56,5 +56,8 @@ export class SearchComponent implements OnInit {
   }
   onSearch(term: string) {
     this.router.navigate(["search", { term: term }]);
+  }
+  canDeactivate() {
+    return this.itunes.results.length > 0;
   }
 }

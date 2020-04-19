@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { SearchItem } from "./data-model/search-item.model";
+import { SearchItem } from "../data-model/search-item.model";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 @Injectable()
